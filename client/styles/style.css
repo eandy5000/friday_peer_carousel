@@ -1,0 +1,20 @@
+#prev {
+    color:white;
+    background-color: #333;
+}
+
+#next {
+    color:white;
+    background-color: #333;
+    margin-left: 15px;
+}
+
+#out div {
+    width: 570px;
+   
+}
+
+#out h1 {
+    font-size: 50px;
+    text-align: center;
+}

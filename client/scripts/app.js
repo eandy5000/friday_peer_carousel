@@ -3,8 +3,10 @@
 
 
 var fadeTime = 1000;
+var autoTime = 5000;
 var indexTracker = 0;
 var personArray = ["Joe", "Bob", "Leo","Jerry","Ziggy", "Lemmy"];
+var slideshow = false;
 
 
 function domSetup (){
@@ -38,22 +40,45 @@ function updateDom() {
     $('#out').append(el).hide().fadeIn(fadeTime);
 }
 
+function autoScroll(){
+    setInterval(function(){
+        if (slideshow === true) {
+            nextIndex();
+            updateDom();
+        }
+    }, autoTime);
+
+}
 
 
 $(document).ready(function(){
   
-domSetup();  
+domSetup();
+autoScroll();
+
+  
   
 //click listeners
 $('#prev').on('click', function(){
    prevIndex();
    updateDom();
+   
 });  
 
 $('#next').on('click', function(){
     nextIndex();
     updateDom();
+    
 }); 
+
+$('.jumbotron').on('click', 'button', function(){
+    if (slideshow === false) {
+        slideshow = true;
+    } else { 
+        slideshow = false;
+    }
+   
+});
     
     
  //end jquery   
